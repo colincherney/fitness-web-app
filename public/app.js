@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 
 const app = express();
+const path = require("path");
 
 // MySQL Connection
 const db = mysql.createConnection({
@@ -36,9 +37,9 @@ app.post("/login", (req, res) => {
     if (err) throw err;
 
     if (result.length > 0) {
-      res.send("Login Successful");
+      res.sendFile(path.join(__dirname, "login_success.html"));
     } else {
-      res.status(401).send("Invalid email or password");
+      res.sendFile(path.join(__dirname, "login_error.html"));
     }
   });
 });
