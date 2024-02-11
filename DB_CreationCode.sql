@@ -2,7 +2,7 @@ CREATE TABLE USERS (
 user_id int auto_increment NOT NULL,
 first_name varchar(50) NOT NULL,
 last_name varchar(50) NOT NULL,
-age int NOT NULL,
+age date NOT NULL,
 email varchar(100) NOT NULL,
 phone varchar(20) NOT NULL,
 PRIMARY KEY (user_id)
