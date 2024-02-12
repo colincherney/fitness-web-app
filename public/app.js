@@ -37,7 +37,7 @@ app.post("/login", (req, res) => {
     if (err) throw err;
 
     if (result.length > 0) {
-      res.sendFile(path.join(__dirname, "login_success.html"));
+      res.sendFile(path.join(__dirname, "homepage.html"));
     } else {
       res.sendFile(path.join(__dirname, "login_error.html"));
     }
