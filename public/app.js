@@ -36,7 +36,7 @@ app.post("/login", (req, res) => {
     console.log("MySQL Connected...");
 
     const { email, password } = req.body;
-    const sql = `SELECT * FROM USERS WHERE email = ? AND password = ?`;
+    const sql = `SELECT user_id FROM USERS WHERE email = ? AND password = ?`;
 
     db.query(sql, [email, password], (err, result) => {
       if (err) {
@@ -46,7 +46,8 @@ app.post("/login", (req, res) => {
       }
 
       if (result.length > 0) {
-        res.sendFile(path.join(__dirname, "homepage.html"));
+        const user_id = result[0].user_id;
+        res.redirect(`/homepage.html?user_id=${user_id}`);
       } else {
         res.sendFile(path.join(__dirname, "login_error.html"));
       }
