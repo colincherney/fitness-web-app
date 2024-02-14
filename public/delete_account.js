@@ -1,3 +1,6 @@
+// this is just a base. a lot of things aren't working yet...
+
+
 document.getElementById("deleteBtn").addEventListener("click", function() {
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -35,9 +38,3 @@ document.getElementById("deleteBtn").addEventListener("click", function() {
     });
   });
   
-  function getUserId() {
-    // Implement this function to get the user ID of the currently logged-in user
-    // You can retrieve it from the session or any other means you use for authentication
-    // For the sake of this example, assume it's stored in a global variable or retrieved from local storage
-    return loggedInUserId;
-  }
