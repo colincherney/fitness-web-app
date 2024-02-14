@@ -100,6 +100,41 @@ app.post("/signup", (req, res) => {
   });
 });
 
+app.get("/user/:userId", (req, res) => {
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    const userId = req.params.userId;
+    db.query(
+      "SELECT * FROM USERS WHERE user_id = ?",
+      [userId],
+      (error, results) => {
+        if (error) {
+          console.error("Error fetching data:", error);
+          res.status(500).send("Internal Server Error");
+          return;
+        }
+        res.json(results);
+      }
+    );
+
+    db.end((err) => {
+      if (err) {
+        console.error("Error closing MySQL connection:", err);
+        return;
+      }
+      console.log("MySQL Connection Closed...");
+    });
+  });
+});
+
 // Start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
