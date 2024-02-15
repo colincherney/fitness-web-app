@@ -152,6 +152,18 @@ app.get("/user", (req, res) => {
   });
 });
 
+// Logout route
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error destroying session:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    res.redirect("/index.html"); // Redirect to the login page
+  });
+});
+
 // Start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
