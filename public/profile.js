@@ -9,8 +9,8 @@ fetch(`/user`, {
     return response.json();
   })
   .then((data) => {
-    console.log("User ID:", data[0].user_id);
-    // Use the user_id as needed in your JavaScript code
+    console.log("User Data:", data);
+    // Use the data as needed in your JavaScript code
   })
   .catch((error) => {
     console.error("There was a problem with your fetch operation:", error);

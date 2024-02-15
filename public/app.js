@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 
 const app = express();
 const path = require("path");
@@ -21,6 +22,15 @@ function createConnection() {
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Session middleware
+app.use(
+  session({
+    secret: "your_secret_key_here",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // Serve static files
 app.use(express.static("public"));
@@ -47,7 +57,8 @@ app.post("/login", (req, res) => {
 
       if (result.length > 0) {
         const user_id = result[0].user_id;
-        res.redirect(`/homepage.html?user_id=${user_id}`);
+        req.session.user_id = user_id; // Store user_id in session
+        res.redirect(`/homepage.html`);
       } else {
         res.sendFile(path.join(__dirname, "login_error.html"));
       }
@@ -100,7 +111,14 @@ app.post("/signup", (req, res) => {
   });
 });
 
-app.get("/user/:userId", (req, res) => {
+app.get("/user", (req, res) => {
+  const user_id = req.session.user_id; // Retrieve user_id from session
+
+  if (!user_id) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+
   const db = createConnection(); // Create a new database connection
 
   db.connect((err) => {
@@ -111,10 +129,9 @@ app.get("/user/:userId", (req, res) => {
     }
     console.log("MySQL Connected...");
 
-    const userId = req.params.userId;
     db.query(
       "SELECT * FROM USERS WHERE user_id = ?",
-      [userId],
+      [user_id],
       (error, results) => {
         if (error) {
           console.error("Error fetching data:", error);
