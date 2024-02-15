@@ -10,7 +10,9 @@ fetch(`/user`, {
   })
   .then((data) => {
     console.log("User Data:", data);
-    // Use the data as needed in your JavaScript code
+
+    document.getElementById("username").innerText =
+      data[0].first_name + " " + data[0].last_name;
   })
   .catch((error) => {
     console.error("There was a problem with your fetch operation:", error);
