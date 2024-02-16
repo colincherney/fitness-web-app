@@ -1,73 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join a Group </title>
-    <!-- heading format -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker - Home</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+      }
+      .main-content {
+        padding: 20px;
+        text-align: center;
+      }
+      .button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Find Groups & Events</h1>
+    </header>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-    .button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .button:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>Find Group & Events<h1>
-</header>
-
-<nav>
-  <ul>
-    <li><a href="homepage.html">Home</a></li>
-    <li><a href="track_workout.html">Track Workout</a></li>
-    <li><a href="join_groups.html">Find Groups & Events</a></li>
-    <li><a href="profile.html">Profile</a></li>
-  </ul>
-</nav>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="track_workout.html">Track Workout</a></li>
+        <li><a href="join_groups.html">Find Groups & Events</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a id="logout" href="#">Logout</a></li>
+      </ul>
+    </nav>
+    <script src="homepage.js"></script>
+  </body>
+</html>

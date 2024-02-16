@@ -1,40 +1,27 @@
-// this is just a base. a lot of things aren't working yet...
+document.getElementById("delete").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent the default behavior of the button
 
-
-document.getElementById("deleteBtn").addEventListener("click", function() {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
-  
-    document.getElementById("confirmBtn").addEventListener("click", function() {
-      // Get the userId of the currently logged-in user (you need to implement this)
-      const userId = getUserId(); // Implement this function to get the user ID
-  
-      // Send AJAX request to delete account
-      fetch("/delete-account", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ userId: userId })
-      })
-      .then(response => {
-        if (response.ok) {
-          // Account deleted successfully, perform any necessary actions (e.g., redirect to login page)
-          alert("Account deleted successfully");
-          window.location.href = "/login"; // Redirect to login page
+  // Show confirmation dialog
+  if (
+    confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    )
+  ) {
+    fetch("/delete_account", {
+      method: "POST",
+      credentials: "same-origin", // Include cookies in the request
+    })
+      .then((response) => {
+        if (response.redirected) {
+          // Redirect to the login page
+          window.location.href = response.url;
         } else {
-          // Error occurred while deleting account
-          alert("Error occurred while deleting account");
+          // Handle other responses
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error deleting account:", error);
-        alert("Error occurred while deleting account");
+        // Handle error
       });
-    });
-  
-    document.getElementById("cancelBtn").addEventListener("click", function() {
-      modal.style.display = "none";
-    });
-  });
-  
+  }
+});

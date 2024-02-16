@@ -114,7 +114,19 @@
       .button:hover {
         background-color: #45a049;
       }
-
+      #delete {
+        background-color: #f44336;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        justify-content: center;
+      }
     </style>
   </head>
   <body>
@@ -128,6 +140,7 @@
         <li><a href="track_workout.html">Track Workout</a></li>
         <li><a href="join_groups.html">Find Groups & Events</a></li>
         <li><a href="profile.html">Profile</a></li>
+        <li><a id="logout" href="#">Logout</a></li>
       </ul>
     </nav>
 
@@ -137,7 +150,7 @@
           <img src="defaultprofile.jpg" alt="User Photo" />
         </div>
         <div>
-          <h1>User Name</h1>
+          <h1 id="username">User Name</h1>
           <p class="user-bio">
             User Bio Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
@@ -163,6 +176,11 @@
 
         <!-- Add more posts as needed -->
       </div>
+      <button id="delete">Delete Account</button>
     </div>
+
+    <script src="profile.js"></script>
+    <script src="homepage.js"></script>
+    <script src="delete_account.js"></script>
   </body>
 </html>
