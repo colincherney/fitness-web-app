@@ -13,6 +13,8 @@ fetch(`/user`, {
 
     document.getElementById("username").innerText =
       data[0].first_name + " " + data[0].last_name;
+
+    document.getElementById("user-bio").innerText = data[0].user_bio;
   })
   .catch((error) => {
     console.error("There was a problem with your fetch operation:", error);
