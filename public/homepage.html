@@ -1,85 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness Tracker - Home</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        text-align: center;
-      }
-      nav {
-        background-color: #f4f4f4;
-        padding: 10px 20px;
-        text-align: center;
-      }
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      nav ul li {
-        display: inline;
-        margin-right: 20px;
-      }
-      nav ul li a {
-        text-decoration: none;
-        color: #333;
-      }
-      .main-content {
-        padding: 20px;
-        text-align: center;
-      }
-      .button {
-        background-color: #4caf50;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 20px;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Fitness Tracker App</h1>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="track_workout.html">Track Workout</a></li>
-        <li><a href="join_groups.html">Find Groups & Events</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a id="logout" href="#">Logout</a></li>
-      </ul>
-    </nav>
-
-    <div class="main-content">
-      <h2>Welcome to the Fitness Tracker App!</h2>
-      <p>
-        Track your gym progress, plan your workouts, post your goals, and find
-        groups and events that interest you.
-      </p>
-      <p>Become a better version of yourself.</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Tracker - Home</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    /* Additional styles */
+    .hero-image {
+      background-image: url('fitness-hero.jpg');
+      background-size: cover;
+      height: 300px; /* Adjust as needed */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative; /* Added */
+    }
+    .hero-image img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%; /* Added */
+      max-height: 100%; /* Added */
+    }
+    .featured-workouts {
+      background-color: #f9f9f9;
+      padding: 50px 0;
+    }
+    .testimonial {
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .homepage-container {
+      display: flex;
+      position: relative;
+      margin-top: -50px; /* Adjust to overlap text over images */
+    }
+    .homepage-container img {
+      width: 100px; /* Adjust as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-right: 10px; /* Adjust the gap between images */
+    }
+    .homepage-container img:last-child {
+      margin-right: 0;
+    }
+    .text-over-images {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      z-index: 1; /* Ensure text is above images */
+    }
+    .philosophy-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+    .philosophy-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .philosophy-section p {
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+    .philosophy-section blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 10px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to our Fitness Tracker App!</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="track_workout.html">Track Workout</a></li>
+      <li><a href="join_groups.html">Find Groups & Events</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a id="logout" href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="hero-image">
+    <img src="heroimage.png" alt="Homepage"> <!-- Corrected -->
+    <h2>Track Your Progress, Stay Motivated!</h2>
+  </div>
+  <div class="philosophy-section">
+    <h2>Our Philosophy</h2>
+    <p><strong>Continuous Growth and Progress</strong></p>
+    <blockquote>"In the journey of fitness, every step forward, no matter how small, is a testament to your commitment to growth. Embrace each moment of progress, for it is the sum of these steps that propels you toward greatness."</blockquote>
+    <p>We believe in the power of progress, no matter how small. We encourage our users to embrace the journey of continuous growth, celebrate their achievements, and learn from setbacks. Every step forward, no matter how incremental, brings us closer to our goals.</p>
+  </div>
+  <div class="main-content">
+    <h2>Join Groups for Extra Motivation</h2>
+    <p>Connect with like-minded individuals and achieve your fitness goals together.</p>
+    <a href="join_groups.html" class="button">Join Groups</a>
+    <div class="homepage-container">
+      <img src="group 2.png" alt="Group 2">
+      <img src="group 3.png" alt="Group 3">
+      <div class="text-over-images">
+        <h3>Join Groups Now!</h3>
+        <p>Connect with others to stay motivated and reach your fitness goals!</p>
+        <a href="join_groups.html" class="button">Join Groups</a>
+      </div>
     </div>
-
-    <script src="homepage.js"></script>
-  </body>
+  </div>
+  <footer>
+    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+<script>
+  document.getElementById('logout').addEventListener('click', function() {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';
+  });
+</script>
+</body>
 </html>
