@@ -1,75 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness Tracker - Home</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        text-align: center;
-      }
-      nav {
-        background-color: #f4f4f4;
-        padding: 10px 20px;
-        text-align: center;
-      }
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      nav ul li {
-        display: inline;
-        margin-right: 20px;
-      }
-      nav ul li a {
-        text-decoration: none;
-        color: #333;
-      }
-      .main-content {
-        padding: 20px;
-        text-align: center;
-      }
-      .button {
-        background-color: #4caf50;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 20px;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Find Groups & Events</h1>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="track_workout.html">Track Workout</a></li>
-        <li><a href="join_groups.html">Find Groups & Events</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a id="logout" href="#">Logout</a></li>
-      </ul>
-    </nav>
-    <script src="homepage.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Groups - Fitness Tracker App</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .group-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .group-card {
+      width: 300px;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .group-card img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .group-card h3 {
+      color: #333;
+    }
+    .button {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Find Groups</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="track_workout.html">Track Workout</a></li>
+      <li><a href="join_groups.html">Find Groups & Events</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a id="logout" href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <div class="group-container">
+      <div class="group-card">
+        <img src="running_club.jpg" alt="Running Club">
+        <h3>Running Club</h3>
+        <p>Join our running club to connect with other runners and participate in group runs.</p>
+        <button class="button">Add to Workout</button>
+      </div>
+      <div class="group-card">
+        <img src="powerlifting_group.jpg" alt="Powerlifting Group">
+        <h3>Powerlifting Group</h3>
+        <p>Join our powerlifting group to learn lifting techniques and compete in friendly competitions.</p>
+        <button class="button">Add to Workout</button>
+      </div>
+      <div class="group-card">
+        <img src="nutrition_advocates.jpg" alt="Nutrition Advocates">
+        <h3>Nutrition Advocates</h3>
+        <p>Join our nutrition advocates group to share recipes, tips, and support for healthy eating habits.</p>
+        <button class="button">Add to Workout</button>
+      </div>
+      <!-- Add more group cards as needed -->
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
+  </footer>
+</body>
 </html>
+<script>
+  document.getElementById('logout').addEventListener('click', function() {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';
+  });
+</script>
