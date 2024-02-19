@@ -251,7 +251,6 @@ app.post("/workout_push", (req, res) => {
 // Pull exercises
 
 app.get('/exercises', (req, res) => {
-
   const db = createConnection(); // Create a new database connection
 
   db.connect((err) => {
@@ -264,7 +263,6 @@ app.get('/exercises', (req, res) => {
 
     db.query(
       'SELECT exercise_id, exercise_name, category FROM EXERCISES;',
-      [exercise_id, exercise_name, category],
       (error, results) => {
         if (error) {
           console.error("Error fetching data:", error);
@@ -272,18 +270,19 @@ app.get('/exercises', (req, res) => {
           return;
         }
         res.json(results);
+
+        db.end((err) => {
+          if (err) {
+            console.error("Error closing MySQL connection:", err);
+            return;
+          }
+          console.log("MySQL Connection Closed...");
+        });
       }
     );
-
-    db.end((err) => {
-      if (err) {
-        console.error("Error closing MySQL connection:", err);
-        return;
-      }
-      console.log("MySQL Connection Closed...");
-    });
   });
 });
+
 
 // Start server
 const port = process.env.PORT || 3000;
