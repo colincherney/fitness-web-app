@@ -125,7 +125,7 @@
             <!-- Add more options as needed -->
           </select>
         </div>
-        <button class="button" id="workout1_submit">Add to Workout</button>
+        <button class="button">Add to Workout</button>
       </div>
       
       <div class="workout-item">
@@ -150,7 +150,7 @@
             <!-- Add more options as needed -->
           </select>
         </div>
-        <button class="button" id="workout2_submit">Add to Workout</button>
+        <button class="button">Add to Workout</button>
       </div>
       <div class="workout-item">
         <img src="./pictures/deadlift.jpg" alt="Deadlift">
@@ -174,50 +174,42 @@
             <!-- Add more options as needed -->
           </select>
         </div>
-        <button class="button" id="workout3_submit">Add to Workout</button>
+        <button class="button">Add to Workout</button>
+      </div>
+      <div class="workout-item">
+        <img src="./pictures/shoulderpress.jpg" alt="Shoulder Press">
+        <p>Shoulder Press</p>
+        <div class="dropdown">
+          <label for="workout3-reps">Reps:</label>
+          <select id="workout3-reps">
+            <option value="5">4</option>
+            <option value="10">6</option>
+            <option value="15">8</option>
+            <option value="20">12</option>
+            <option value="25">16</option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="workout3-weight">Weight (lbs):</label>
+          <select id="workout3-weight">
+            <option value="50">45</option>
+            <option value="100">90</option>
+            <option value="150">135</option>
+            <option value="200">195</option>
+          </select>
+        </div>
+        <button class="button">Add to Workout</button>
       </div>
     </div>
-    <div class="workout-item">
-      <img src="./pictures/shoulderpress.jpg" alt="Shoulder Press">
-      <p>Shoulder Press</p>
-      <div class="dropdown">
-        <label for="workout4-reps">Reps:</label>
-        <select id="workout4-reps">
-          <option value="5">4</option>
-          <option value="10">6</option>
-          <option value="15">8</option>
-          <option value="20">12</option>
-          <option value="25">16</option>
-          <!-- Add more options as needed -->
-        </select>
-        <label for="workout4-weight">Weight (lbs):</label>
-        <select id="workout4-weight">
-          <option value="50">45</option>
-          <option value="100">90</option>
-          <option value="150">135</option>
-          <option value="200">195</option>
-          <!-- Add more options as needed -->
-        </select>
-      </div>
-      <button class="button" id="workout4_submit">Add to Workout</button>
-    </div>
-    
-
-      <!-- Add more workout items as needed -->
-    </div>
-
-    
   </div>
-  <footer>
-    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
-  </footer>
 
+<footer>
+  <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
+</footer>
+</body>
+</html>
 <script>
   document.getElementById('logout').addEventListener('click', function() {
     localStorage.removeItem('user');
     window.location.href = 'logout.html'; // Change to the appropriate logout destination
   });
 </script>
-
-</body>
-</html>
