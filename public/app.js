@@ -209,6 +209,81 @@ app.post("/delete_account", (req, res) => {
   });
 });
 
+// Send exercise route
+
+app.post("/workout_push", (req, res) => {
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      throw err;
+    }
+    console.log("MySQL Connected...");
+
+    const { user_id, exercise_id, exercise_name, category, weight, reps } = req.body;
+    user_id = req.session.user_id;
+    // Insert the form data into MySQL database
+    const sql =
+      "INSERT INTO WORKOUTS(user_id, exercise_id, exercise_name, category, weight, reps) VALUES(?, ?, (SELECT exercise_name FROM EXERCISES WHERE exercise_id=?), (SELECT category FROM EXERCISES WHERE exercise_id=?), ?, ?);";
+    db.query(
+      sql,
+      [user_id, exercise_id, exercise_id, exercise_id, weight, reps],
+      (err, result) => {
+        if (err) {
+          console.error("Error inserting data:", err);
+          res.status(500).send("Error occurred while submitting workout");
+          return;
+        }
+        console.log("Data inserted successfully");
+        res.send("Work out submission successful");
+
+        db.end((err) => {
+          if (err) {
+            throw err;
+          }
+          console.log("MySQL Connection Closed...");
+        });
+      }
+    );
+  });
+});
+
+// Pull exercises
+
+app.get('/exercises', (req, res) => {
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    db.query(
+      'SELECT exercise_id, exercise_name, category FROM EXERCISES;',
+      (error, results) => {
+        if (error) {
+          console.error("Error fetching data:", error);
+          res.status(500).send("Internal Server Error");
+          return;
+        }
+        res.json(results);
+
+        db.end((err) => {
+          if (err) {
+            console.error("Error closing MySQL connection:", err);
+            return;
+          }
+          console.log("MySQL Connection Closed...");
+        });
+      }
+    );
+  });
+});
+
+
 // Start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
