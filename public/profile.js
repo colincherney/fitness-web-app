@@ -15,6 +15,9 @@ fetch(`/user`, {
       data[0].first_name + " " + data[0].last_name;
 
     document.getElementById("user-bio").innerText = data[0].user_bio;
+    
+    document.getElementById("user_photo").src = data[0].pfp_url;
+
   })
   .catch((error) => {
     console.error("There was a problem with your fetch operation:", error);
