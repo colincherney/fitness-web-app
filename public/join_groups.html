@@ -82,10 +82,11 @@
       color: #fff;
       text-align: center;
       padding: 10px 0;
-      position: fixed;
+      position: relative;
       bottom: 0;
       width: 100%;
     }
+
   </style>
 </head>
 <body>
@@ -107,9 +108,7 @@
         <img src="./pictures/running group.jpg" alt="Running Club">
         <h3>Running Club</h3>
         <p>Join our running club to connect with other runners and participate in group runs.</p>
-        <button class="button"> Join Community</button>
-        <button onclick="document.location='default.asp'">HTML Tutorial</button>
-
+        <button class="button" onclick="window.location.href = 'running_group.html';"> Join Community</button>
       </div>
       <div class="group-card">
         <img src="./pictures/powerlifting group.jpg" alt="Powerlifting Group">
@@ -121,14 +120,44 @@
         <img src="./pictures/nutrition.jpg" alt="Nutrition Advocates">
         <h3>Nutrition Advocates</h3>
         <p>Join our nutrition advocates group to share recipes, tips, and support for healthy eating habits.</p>
+        <button class="button" onclick="window.location.href = 'nutrition_advocate_group.html';"> Join Community</button>
+      </div>
+      <div class="group-card">
+        <img src="./pictures/yoga.jpg" alt="Running Club">
+        <h3>Yoga Enthusiasts</h3>
+        <p>Join our yoga enthusiasts club to explore different yoga practices, share tips for mindfulness, and participate in virtual yoga sessions led by experienced instructors.</p>
         <button class="button">Join Community</button>
       </div>
-      <!-- Add more group cards as needed -->
+      <div class="group-card">
+        <img src="./pictures/cycling.jpg" alt="Running Club">
+        <h3>Cycling Community</h3>
+        <p>Join our cycling community to share biking routes, maintenance tips, and participate in group rides. Whether you're a beginner or an experienced cyclist, there's something for everyone!</p>
+        <button class="button">Join Community</button>     
+       </div>
+      <div class="group-card">
+        <img src="./pictures/hitt.jpg" alt="Running Club">
+        <h3>HIIT (High-Intensity Interval Training) Crew</h3>
+        <p>Get your heart pumping with our HIIT crew! Join intense workout sessions, exchange HIIT routines, and motivate each other to push your fitness limits.</p>
+        <button class="button">Join Community</button>     
+       </div>
+       <div class="group-card">
+        <img src="./pictures/meditataion.jpg" alt="Running Club">
+        <h3>Meditation Circle</h3>
+        <p>Find inner peace and tranquility in our meditation circle. Connect with like-minded individuals, share meditation techniques, and participate in guided meditation sessions for relaxation and stress relief.</p>
+        <button class="button">Join Community</button>     
+       </div>
+       <div class="group-card">
+        <img src="./pictures/dance.jpg" alt="Running Club">
+        <h3>Dance Group</h3>
+        <p>Dance your way to fitness with our dance fitness group! Join fun and energetic dance workouts, share dance routines, and connect with others who love to move and groove.</p>
+        <button class="button">Join Community</button>     
+       </div>
     </div>
   </div>
-  <footer>
-    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
-  </footer>
+
+      <footer>
+        <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
+      </footer>
 </body>
 </html>
 
