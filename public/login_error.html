@@ -1,81 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
 
-      .container {
-        display: flex;
-        height: 100vh;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-      .hero-image {
-        flex: 1;
-        background-image: url("Hands-Clapping-Chaulk-Kettlebell.webp");
-        background-size: cover;
-        background-position: center;
-      }
+  <style>
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      background-image: url("pictures/kettlebell_image.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-      .login-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
 
-      .login-box {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
 
-      .signup-link {
-        margin-top: 10px;
-      }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
 
-      #invalid-message {
-        color: red;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="hero-image"></div>
-      <div class="login-container">
-        <div class="login-box">
-          <h2>Sign In</h2>
-          <h6 id="invalid-message">Invalid Email or Password!</h6>
-          <form action="/login" method="post" name="loginForm">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-            /><br /><br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-            /><br /><br />
-            <button type="submit">Sign In</button>
-          </form>
-          <div class="signup-link">
-            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-          </div>
+    body,
+    input,
+    button,
+    select,
+    textarea {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 25px;
+    }
+
+
+
+    .login-container {
+      font-family: 'Bebas Neue', sans-serif;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-link {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="hero-image"></div>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Sign In</h2>
+        <p style="color: red; font-size: 15px;">Invalid Email or Password</p>
+        <form action="/login" method="post" name="loginForm">
+          <input type="email" name="email" placeholder="Email" required /><br /><br />
+          <input type="password" name="password" placeholder="Password" required /><br /><br />
+          <button type="submit">Sign In</button>
+        </form>
+        <div class="signup-link">
+          <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
