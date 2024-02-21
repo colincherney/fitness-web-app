@@ -1,108 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup Page</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
 
-      .container {
-        display: flex;
-        height: 100vh;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Page</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      background-image: url("pictures/kettlebell_image.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-      .hero-image {
-        flex: 1;
-        background-image: url("Hands-Clapping-Chaulk-Kettlebell.webp");
-        background-size: cover;
-        background-position: center;
-      }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
 
-      .signup-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+    body,
+    input,
+    button,
+    select,
+    textarea {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 25px;
+    }
 
-      .signup-box {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+    .signup-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .signup-link {
-        margin-top: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="hero-image"></div>
-      <div class="signup-container">
-        <div class="signup-box">
-          <h2>Sign Up</h2>
-          <form id="signupForm">
-            <input
-              type="text"
-              name="first_name"
-              id="firstName"
-              placeholder="First Name"
-              required
-            /><br /><br />
-            <input
-              type="text"
-              name="last_name"
-              id="lastName"
-              placeholder="Last Name"
-              required
-            /><br /><br />
-            <input
-              type="date"
-              name="age"
-              id="age1"
-              placeholder="Date of Birth"
-              required
-            /><br /><br />
-            <input
-              type="email"
-              name="email"
-              id="email1"
-              placeholder="Email"
-              required
-            /><br /><br />
-            <input
-              type="tel"
-              name="phone"
-              id="phone1"
-              placeholder="Phone Number"
-              required
-            /><br /><br />
-            <input
-              type="password"
-              name="password"
-              id="password1"
-              placeholder="Password"
-              required
-            /><br /><br />
-            <button type="submit">Sign Up</button>
-          </form>
-          <div class="signup-link">
-            <p>Ready to log in? <a href="index.html">Sign In</a></p>
-          </div>
+    .signup-box {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-link {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="hero-image"></div>
+    <div class="signup-container">
+      <div class="signup-box">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+          <input type="text" name="first_name" id="firstName" placeholder="First Name" required /><br /><br />
+          <input type="text" name="last_name" id="lastName" placeholder="Last Name" required /><br /><br />
+          <input type="date" name="age" id="age1" placeholder="Date of Birth" required /><br /><br />
+          <input type="email" name="email" id="email1" placeholder="Email" required /><br /><br />
+          <input type="tel" name="phone" id="phone1" placeholder="Phone Number" required /><br /><br />
+          <input type="password" name="password" id="password1" placeholder="Password" required /><br /><br />
+          <button type="submit">Sign Up</button>
+        </form>
+        <div class="signup-link">
+          <p>Ready to log in? <a href="index.html">Sign In</a></p>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="signup.js"></script>
-  </body>
+  <script src="signup.js"></script>
+</body>
+
 </html>
