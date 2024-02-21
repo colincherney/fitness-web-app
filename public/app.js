@@ -210,7 +210,6 @@ app.post("/delete_account", (req, res) => {
 });
 
 // Send exercise route
-
 app.post("/workout_push", (req, res) => {
   const db = createConnection(); // Create a new database connection
 
@@ -249,8 +248,7 @@ app.post("/workout_push", (req, res) => {
 });
 
 // Pull exercises
-
-app.get('/exercises', (req, res) => {
+app.get('/workouts', (req, res) => {
   const db = createConnection(); // Create a new database connection
 
   db.connect((err) => {
@@ -261,11 +259,13 @@ app.get('/exercises', (req, res) => {
     }
     console.log("MySQL Connected...");
 
+    user_id = req.session.user_id;
     db.query(
-      'SELECT exercise_id, exercise_name, category FROM EXERCISES;',
-      (error, results) => {
-        if (error) {
-          console.error("Error fetching data:", error);
+      'SELECT exercise_name, category, weight, reps, date FROM WORKOUTS WHERE user_id = ?;',
+      [user_id],
+      (err, results) => {
+        if (err) {
+          console.error("Error fetching data:", err);
           res.status(500).send("Internal Server Error");
           return;
         }

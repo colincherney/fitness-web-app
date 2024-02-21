@@ -96,6 +96,7 @@
   position: fixed; /* Fixed position to ensure it's always at the bottom */
   bottom: 0;
   width: 100%;
+  margin-top: 10px;
 }
   </style>
 </head>
@@ -315,11 +316,32 @@
       </div>
 </div>
   </div>
+
+  <table id="exerciseTable">
+    <thead>
+        <tr>
+            <th>Exercise Name</th>
+            <th>Category</th>
+            <th>Weight</th>
+            <th>Reps</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <!-- Exercises will be populated here -->
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+
   <footer>
     <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
   </footer>
 </body>
 </html>
+<script src="track_workout.js"></script>
 <script>
   document.getElementById('logout').addEventListener('click', function() {
     localStorage.removeItem('user');
