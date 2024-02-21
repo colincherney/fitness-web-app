@@ -39,22 +39,7 @@
       padding: 20px;
       text-align: center;
     }
-    .button {
-      background-color: #4caf50;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .button:hover {
-      background-color: #45a049;
-    }
-    /* Additional styles */
+
     .hero-image {
       background-image: url('fitness-hero.jpg');
       background-size: cover;
@@ -74,15 +59,7 @@
       max-width: 100%; /* Added */
       max-height: 100%; /* Added */
     }
-    .featured-workouts {
-      background-color: #f9f9f9;
-      padding: 50px 0;
-    }
-    .testimonial {
-      margin: 20px;
-      padding: 20px;
-      background-color: #f4f4f4;
-    }
+
     .homepage-container {
       display: flex;
       position: relative;
@@ -96,15 +73,7 @@
     .homepage-container img:last-child {
       margin-right: 0;
     }
-    .text-over-images {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      z-index: 1; /* Ensure text is above images */
-    }
+
     .philosophy-section {
       max-width: 800px;
       margin: 50px auto;
@@ -135,6 +104,42 @@
       bottom: 0;
       width: 100%;
     }
+
+  .philosophy-section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+.recommended-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+
+
+    .recommended-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .recommended-section p {
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    .recommended-section blockquote {
+      border-left: 4px solid #ccc;
+      padding-left: 10px;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    .recommended-section img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -154,11 +159,18 @@
     <img src="./pictures/heroimage.png" alt="Homepage"> <!-- Corrected -->
     <h2>Track Your Progress, Stay Motivated!</h2>
   </div>
+
+  
   <div class="philosophy-section">
     <h2>Our Philosophy</h2>
     <p><strong>Continuous Growth and Progress</strong></p>
     <blockquote>"In the journey of fitness, every step forward, no matter how small, is a testament to your commitment to growth. Embrace each moment of progress, for it is the sum of these steps that propels you toward greatness."</blockquote>
     <p>We believe in the power of progress, no matter how small. We encourage our users to embrace the journey of continuous growth, celebrate their achievements, and learn from setbacks. Every step forward, no matter how incremental, brings us closer to our goals.</p>
+  </div>
+
+  <div class="recommended-section">
+    <h2>Recommended From</h2>
+    <img src="./pictures/as-seen-in.png" alt="Companies">
   </div>
 
       </div>
