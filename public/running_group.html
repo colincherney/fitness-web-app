@@ -1,118 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Running Club</title>
-  <link rel="icon" type="image/x-icon" href="favicon.png" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-    .group-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-    .group-card {
-      width: 300px;
-      margin: 20px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .group-card img {
-      width: 100%;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    .group-card h3 {
-      color: #333;
-    }
-    .button {
-      background-color: #4caf50;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Advocates Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Added background color */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0; /* Increased top/bottom padding */
+            text-align: center;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            width: 300px;
+            margin-bottom: 20px; /* Added margin-bottom for spacing */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Added background color */
+        }
+
+        .card h2 {
+            color: #333;
+            margin-top: 0; /* Removed default margin */
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px; /* Added margin-bottom for spacing */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Running Club</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="homepage.html">Home</a></li>
-      <li><a href="track_workout.html">Track Workout</a></li>
-      <li><a href="join_groups.html">Find Groups & Events</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li><a id="logout" href="#">Logout</a></li>
-    </ul>
-  </nav>
-  <div class="main-content">
-    <h2>Upcoming Events</h2>
-    <p>Weekly Group Runs: Every Saturday at 8:00 AM @Daley Park</p>
-    <p>Marathon Training Workshop: March 15th, 2024 @SDFC Fields</p>
-    </ul>
-    <h2>Members</h2>
-    <p>Member Spotlight.</p>
-    <h2>Member Spotlight</h2>
-    <p>Highlight a member of the running club here.</p>
-  </div>
-  <footer>
-    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
-  </footer>
+    <header>
+        <h1>Nutrition Advocates Club</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="track_workout.html">Track Workout</a></li>
+            <li><a href="join_groups.html">Find Groups & Events</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a id="logout" href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>About the club</h2>
+            <img src="./pictures/running.jpg" alt="Running Group">
+            <p>Welcome to our running club! We are a group of passionate runners who love to hit the road and enjoy the thrill of running together. Whether you're a beginner or an experienced runner, you'll find a supportive community here.</p>
+        </div>
+        <div class="card">
+            <h2>Upcoming Events</h2>
+            <ul class="event-list">
+              <li class="event-item">
+                <span class="event-date">March 5, 2024</span>
+                <p class="event-description">Weekly Group Run<br>Time: 7:00 AM<br>Location: Daley Park</p>
+              </li>
+              <li class="event-item">
+                <span class="event-date">March 12, 2024</span>
+                <p class="event-description">Weekly Group Run<br>Time: 7:00 AM<br>Location: Daley Park</p>
+              </li>
+              <li class="event-item">
+                <span class="event-date">March 16, 2024</span>
+                <p class="event-description">5K Race<br>Time: 8:00 AM<br>Location: Tempe Town Lake</p>
+              </li>
+              <li class="event-item">
+                <span class="event-date">March 19, 2024</span>
+                <p class="event-description">Weekly Group Run<br>Time: 7:00 AM<br>Location: Daley Park</p>
+              </li>
+              <li class="event-item">
+                <span class="event-date">March 23, 2024</span>
+                <p class="event-description">Half Marathon<br>Time: 9:00 AM<br>Location: Glendale Stadium</p>
+              </li>
+
+        </div>
+        <div class="card">
+            <h2>Members</h2>
+            <p>add members from database here</p>
+        </div>
+        <div class="card">
+          <h2>Member Spotlight</h2>
+          <img src="./pictures/jin.jpg" alt="Jin">
+          <p>Meet Jin, our Runner of the Month! Jin exemplifies dedication and passion for running. With a relentless spirit and a commitment to pushing boundaries, Jin inspires us all to strive for greatness. Whether it's conquering long-distance trails or sprinting through city streets, Jin's enthusiasm for the sport is contagious. Congratulations, Jin, on this well-deserved recognition! Keep blazing trails and inspiring others on your journey to greatness. </p>
+      </div>
+    </div>
+
 </body>
 </html>
+
+<script>
+  document.getElementById('logout').addEventListener('click', function() {
+    localStorage.removeItem('user');
+    window.location.href = 'index.html';
+  });
+  </script>
