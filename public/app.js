@@ -285,6 +285,179 @@ app.get("/workouts", (req, res) => {
   });
 });
 
+// Check if user_id exists in members table
+app.get("/check_member", (req, res) => {
+  const user_id = req.session.user_id;
+
+  if (!user_id) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    db.query(
+      "SELECT * FROM MEMBERS WHERE user_id = ?",
+      [user_id],
+      (err, results) => {
+        if (err) {
+          console.error("Error fetching data:", err);
+          res.status(500).send("Internal Server Error");
+          return;
+        }
+        if (results.length > 0) {
+          res.json({ exists: true });
+        } else {
+          res.json({ exists: false });
+        }
+
+        db.end((err) => {
+          if (err) {
+            console.error("Error closing MySQL connection:", err);
+            return;
+          }
+          console.log("MySQL Connection Closed...");
+        });
+      }
+    );
+  });
+});
+
+// Add user_id to members table
+app.post("/add_member", (req, res) => {
+  const user_id = req.session.user_id;
+
+  if (!user_id) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    db.query(
+      "INSERT INTO MEMBERS (user_id, community_id) VALUES (?, 1)",
+      [user_id],
+      (err, result) => {
+        if (err) {
+          console.error("Error inserting data:", err);
+          res.status(500).send("Error occurred while adding member");
+          return;
+        }
+        console.log("Member added successfully");
+
+        db.end((err) => {
+          if (err) {
+            console.error("Error closing MySQL connection:", err);
+            return;
+          }
+          console.log("MySQL Connection Closed...");
+        });
+      }
+    );
+  });
+});
+
+// Remove user_id to members table
+app.post("/remove_member", (req, res) => {
+  const user_id = req.session.user_id;
+
+  if (!user_id) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    db.query(
+      "DELETE FROM MEMBERS WHERE user_id = ? AND community_id = 1",
+      [user_id],
+      (err, result) => {
+        if (err) {
+          console.error("Error inserting data:", err);
+          res.status(500).send("Error occurred while adding member");
+          return;
+        }
+        console.log("Member removed successfully");
+
+        db.end((err) => {
+          if (err) {
+            console.error("Error closing MySQL connection:", err);
+            return;
+          }
+          console.log("MySQL Connection Closed...");
+        });
+      }
+    );
+  });
+});
+
+// Route to get names of users who are members
+app.get("/members", (req, res) => {
+  const db = createConnection(); // Create a new database connection
+
+  db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to MySQL:", err);
+      res.status(500).send("Internal Server Error");
+      return;
+    }
+    console.log("MySQL Connected...");
+
+    db.query(
+      "SELECT u.user_id, u.first_name, u.last_name FROM USERS u INNER JOIN MEMBERS m ON u.user_id = m.user_id",
+      (err, results) => {
+        if (err) {
+          console.error("Error fetching data:", err);
+          res.status(500).send("Internal Server Error");
+          return;
+        }
+
+        const membersNames = results.map(
+          ({ user_id, first_name, last_name }) => ({
+            user_id,
+            first_name,
+            last_name,
+          })
+        );
+
+        res.json(membersNames); // Send the results as JSON
+      }
+    );
+
+    db.end((err) => {
+      if (err) {
+        console.error("Error closing MySQL connection:", err);
+        return;
+      }
+      console.log("MySQL Connection Closed...");
+    });
+  });
+});
+
 // Start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
