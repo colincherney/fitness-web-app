@@ -1,350 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness Tracker - Track Workout</title>
-  <link rel="icon" type="image/x-icon" href="favicon.png" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker - Track Workout</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      nav {
+        background-color: #f4f4f4;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+      }
+      .main-content {
+        padding: 20px;
+        text-align: center;
+      }
+      .button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #45a049;
+      }
+      /* Additional styles */
+      .workout-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .workout-item {
+        text-align: center;
+      }
+      .workout-item img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .dropdown {
+        margin-top: 10px;
+      }
+      .dropdown label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .dropdown select {
+        width: 150px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
 
-    
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-    .button {
-      background-color: #4caf50;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .button:hover {
-      background-color: #45a049;
-    }
-    /* Additional styles */
-    .workout-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .workout-item {
-      text-align: center;
-    }
-    .workout-item img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    .dropdown {
-      margin-top: 10px;
-    }
-    .dropdown label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    .dropdown select {
-      width: 150px;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed; /* Fixed position to ensure it's always at the bottom */
+        bottom: 0;
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Track Your Workout</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="track_workout.html">Track Workout</a></li>
+        <li><a href="join_groups.html">Find Groups & Events</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a id="logout" href="#">Logout</a></li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <h2>Select Your Workout</h2>
+      <div class="workout-container">
+        <div class="workout-item">
+          <img src="./pictures/squats.jpg" alt="Squats" />
+          <p>Squats</p>
+          <div class="dropdown">
+            <label for="workout1-reps">Reps:</label>
+            <select id="squats-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout1-weight">Weight (lbs):</label>
+            <select id="squats-weight">
+              <option value="45">45</option>
+              <option value="90">90</option>
+              <option value="135">135</option>
+              <option value="195">195</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" id="squats-add" value="squats">
+            Add to Workout
+          </button>
+        </div>
 
-    footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed; /* Fixed position to ensure it's always at the bottom */
-  bottom: 0;
-  width: 100%;
-  margin-top: 10px;
-}
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Track Your Workout</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="homepage.html">Home</a></li>
-      <li><a href="track_workout.html">Track Workout</a></li>
-      <li><a href="join_groups.html">Find Groups & Events</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li><a id="logout" href="#">Logout</a></li>
-    </ul>
-  </nav>
-  <div class="main-content">
-    <h2>Select Your Workout</h2>
-    <div class="workout-container">
-      <div class="workout-item">
-        <img src="./pictures/squats.jpg" alt="Squats">
-        <p>Squats</p>
-        <div class="dropdown">
-          <label for="workout1-reps">Reps:</label>
-          <select id="workout1-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout1-weight">Weight (lbs):</label>
-          <select id="workout1-weight">
-            <option value="50">45</option>
-            <option value="100">90</option>
-            <option value="150">135</option>
-            <option value="200">195</option>
-            <!-- Add more options as needed -->
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/benchpress.jpg" alt="Benchpress" />
+          <p>Benchpress</p>
+          <div class="dropdown">
+            <label for="workout2-reps">Reps:</label>
+            <select id="benchpress-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout2-weight">Weight (lbs):</label>
+            <select id="benchpress-weight">
+              <option value="45">45</option>
+              <option value="90">90</option>
+              <option value="135">135</option>
+              <option value="195">195</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" value="benchpress">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-      
-      <div class="workout-item">
-        <img src="./pictures/benchpress.jpg" alt="Benchpress">
-        <p>Benchpress</p>
-        <div class="dropdown">
-          <label for="workout2-reps">Reps:</label>
-          <select id="workout2-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout2-weight">Weight (lbs):</label>
-          <select id="workout2-weight">
-            <option value="50">45</option>
-            <option value="100">90</option>
-            <option value="150">135</option>
-            <option value="200">195</option>
-            <!-- Add more options as needed -->
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/deadlift.jpg" alt="Deadlift" />
+          <p>Deadlift</p>
+          <div class="dropdown">
+            <label for="workout3-reps">Reps:</label>
+            <select id="deadlift-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout3-weight">Weight (lbs):</label>
+            <select id="deadlift-weight">
+              <option value="45">45</option>
+              <option value="90">90</option>
+              <option value="135">135</option>
+              <option value="195">195</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" value="deadlift">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-      <div class="workout-item">
-        <img src="./pictures/deadlift.jpg" alt="Deadlift">
-        <p>Deadlift</p>
-        <div class="dropdown">
-          <label for="workout3-reps">Reps:</label>
-          <select id="workout3-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout3-weight">Weight (lbs):</label>
-          <select id="workout3-weight">
-            <option value="50">45</option>
-            <option value="100">90</option>
-            <option value="150">135</option>
-            <option value="200">195</option>
-            <!-- Add more options as needed -->
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/shoulderpress.jpg" alt="Shoulder Press" />
+          <p>Shoulder Press</p>
+          <div class="dropdown">
+            <label for="workout3-reps">Reps:</label>
+            <select id="shoulderpress-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout3-weight">Weight (lbs):</label>
+            <select id="shoulderpress-weight">
+              <option value="45">45</option>
+              <option value="90">90</option>
+              <option value="135">135</option>
+              <option value="195">195</option>
+            </select>
+          </div>
+          <button class="button" value="shoulderpress">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-      <div class="workout-item">
-        <img src="./pictures/shoulderpress.jpg" alt="Shoulder Press">
-        <p>Shoulder Press</p>
-        <div class="dropdown">
-          <label for="workout3-reps">Reps:</label>
-          <select id="workout3-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout3-weight">Weight (lbs):</label>
-          <select id="workout3-weight">
-            <option value="50">45</option>
-            <option value="100">90</option>
-            <option value="150">135</option>
-            <option value="200">195</option>
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/dumbell curls.jpg" alt="Dumbell Curls" />
+          <p>Dumbell Curls</p>
+          <div class="dropdown">
+            <label for="workout2-reps">Reps:</label>
+            <select id="dumbbellcurls-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout2-weight">Weight (lbs):</label>
+            <select id="dumbbellcurls-weight">
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" value="dumbbellcurls">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-            <div class="workout-item">
-        <img src="./pictures/dumbell curls.jpg" alt="Dumbell Curls">
-        <p>Dumbell Curls</p>
-        <div class="dropdown">
-          <label for="workout2-reps">Reps:</label>
-          <select id="workout2-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout2-weight">Weight (lbs):</label>
-          <select id="workout2-weight">
-            <option value="50">15</option>
-            <option value="100">20</option>
-            <option value="150">25</option>
-            <option value="200">30</option>
-            <option value="250">35</option>
-            <!-- Add more options as needed -->
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/lat-raise.jpg" alt="Laterial Raise" />
+          <p>Laterial Raise</p>
+          <div class="dropdown">
+            <label for="workout2-reps">Reps:</label>
+            <select id="laterialraise-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout2-weight">Weight (lbs):</label>
+            <select id="laterialraise-weight">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+            </select>
+          </div>
+          <button class="button" value="laterialraise">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-      <div class="workout-item">
-        <img src="./pictures/lat-raise.jpg" alt="Laterial Raise">
-        <p>Laterial Raise</p>
-        <div class="dropdown">
-          <label for="workout2-reps">Reps:</label>
-          <select id="workout2-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout2-weight">Weight (lbs):</label>
-          <select id="workout2-weight">
-            <option value="50">10</option>
-            <option value="100">15</option>
-            <option value="150">20</option>
-            <option value="200">25</option>
-            <option value="250">30</option>
-            <option value="250">35</option>
-            <option value="250">40</option>
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/hip-thrust.jpg" alt="Hip Thrust" />
+          <p>Hip Thrust</p>
+          <div class="dropdown">
+            <label for="workout2-reps">Reps:</label>
+            <select id="hipthrust-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout2-weight">Weight (lbs):</label>
+            <select id="hipthrust-weight">
+              <option value="45">45</option>
+              <option value="90">90</option>
+              <option value="135">135</option>
+              <option value="195">195</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" value="hipthrust">Add to Workout</button>
         </div>
-        <button class="button">Add to Workout</button>
-      </div>
-      <div class="workout-item">
-        <img src="./pictures/hip-thrust.jpg" alt="Hip Thrust">
-        <p>Hip Thrust</p>
-        <div class="dropdown">
-          <label for="workout2-reps">Reps:</label>
-          <select id="workout2-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout2-weight">Weight (lbs):</label>
-          <select id="workout2-weight">
-            <option value="50">45</option>
-            <option value="100">90</option>
-            <option value="150">135</option>
-            <option value="200">195</option>
-            <!-- Add more options as needed -->
-          </select>
+        <div class="workout-item">
+          <img src="./pictures/lat-pulldown.jpg" alt="Laterial Pulldown" />
+          <p>Laterial Pulldown</p>
+          <div class="dropdown">
+            <label for="workout2-reps">Reps:</label>
+            <select id="laterialpulldown-reps">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="12">12</option>
+              <option value="16">16</option>
+              <!-- Add more options as needed -->
+            </select>
+            <label for="workout2-weight">Weight (lbs):</label>
+            <select id="laterialpulldown-weight">
+              <option value="45">45</option>
+              <option value="65">65</option>
+              <option value="85">85</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+              <option value="140">140</option>
+              <option value="160">160</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+          <button class="button" value="laterialpulldown">
+            Add to Workout
+          </button>
         </div>
-        <button class="button">Add to Workout</button>
       </div>
-      <div class="workout-item">
-        <img src="./pictures/lat-pulldown.jpg" alt="Laterial Pulldown">
-        <p>Laterial Pulldown</p>
-        <div class="dropdown">
-          <label for="workout2-reps">Reps:</label>
-          <select id="workout2-reps">
-            <option value="5">4</option>
-            <option value="10">6</option>
-            <option value="15">8</option>
-            <option value="20">12</option>
-            <option value="25">16</option>
-            <!-- Add more options as needed -->
-          </select>
-          <label for="workout2-weight">Weight (lbs):</label>
-          <select id="workout2-weight">
-            <option value="50">45</option>
-            <option value="100">65</option>
-            <option value="150">85</option>
-            <option value="200">100</option>
-            <option value="250">120</option>
-            <option value="250">140</option>
-            <option value="250">160</option>
-            <!-- Add more options as needed -->
-          </select>
-        </div>
-        <button class="button">Add to Workout</button>
-      </div>
-</div>
-  </div>
+    </div>
 
-  <table id="exerciseTable">
-    <thead>
+    <table id="exerciseTable">
+      <thead>
         <tr>
-            <th>Exercise Name</th>
-            <th>Category</th>
-            <th>Weight</th>
-            <th>Reps</th>
-            <th>Date</th>
+          <th>Exercise Name</th>
+          <th>Category</th>
+          <th>Weight</th>
+          <th>Reps</th>
+          <th>Date</th>
         </tr>
-    </thead>
-    <tbody id="tableBody">
+      </thead>
+      <tbody id="tableBody">
         <!-- Exercises will be populated here -->
-    </tbody>
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
 
-  <footer>
-    <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
-  </footer>
-</body>
+    <footer>
+      <p>&copy; 2024 Fitness Tracker App. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
 <script src="track_workout.js"></script>
 <script>
-  document.getElementById('logout').addEventListener('click', function() {
-    localStorage.removeItem('user');
-    window.location.href = 'logout.html'; // Change to the appropriate logout destination
+  document.getElementById("logout").addEventListener("click", function () {
+    localStorage.removeItem("user");
+    window.location.href = "logout.html"; // Change to the appropriate logout destination
   });
 </script>

@@ -1,42 +1,40 @@
+document.querySelectorAll(".button").forEach((button) => {
+  button.addEventListener("click", function () {
+    updateWorkout(button.value);
+  });
+});
 
-//Populate past exercises table
-document.addEventListener("DOMContentLoaded", () => {
-  fetch(`/workouts`, {
-    method: "GET",
-    credentials: "same-origin",
+function updateWorkout(exercise) {
+  let reps = document.getElementById(exercise + "-reps").value;
+  let weight = document.getElementById(exercise + "-weight").value;
+
+  console.log("Exercise:", exercise);
+  console.log("Reps:", reps);
+  console.log("Weight:", weight);
+
+  fetch("/workout_push", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      exercise_name: exercise,
+      reps: reps,
+      weight: weight,
+    }),
   })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      return response.json();
+      return response.text();
     })
     .then((data) => {
-      console.log("User Data:", data);
-      data.forEach(workout => {
-        const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        const categoryCell = document.createElement('td');
-        const weightCell = document.createElement('td');
-        const repsCell = document.createElement('td');
-        const dateCell = document.createElement('td');
-
-        nameCell.textContent = workout.exercise_name;
-        categoryCell.textContent = workout.category;
-        weightCell.textContent = workout.weight;
-        repsCell.textContent = workout.reps;
-        dateCell.textContent = workout.date;
-
-
-        row.appendChild(nameCell);
-        row.appendChild(categoryCell);
-        row.appendChild(weightCell);
-        row.appendChild(repsCell);
-        row.appendChild(dateCell);
-        tableBody.appendChild(row);
-      });
+      console.log(data);
+      // Handle success
     })
     .catch((error) => {
       console.error("There was a problem with your fetch operation:", error);
+      // Handle error
     });
-});
+}

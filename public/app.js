@@ -219,14 +219,16 @@ app.post("/workout_push", (req, res) => {
     }
     console.log("MySQL Connected...");
 
-    const { user_id, exercise_id, exercise_name, category, weight, reps } = req.body;
+    let { user_id, exercise_id, exercise_name, category, weight, reps } =
+      req.body;
     user_id = req.session.user_id;
+
     // Insert the form data into MySQL database
     const sql =
-      "INSERT INTO WORKOUTS(user_id, exercise_id, exercise_name, category, weight, reps) VALUES(?, ?, (SELECT exercise_name FROM EXERCISES WHERE exercise_id=?), (SELECT category FROM EXERCISES WHERE exercise_id=?), ?, ?);";
+      "INSERT INTO WORKOUTS(user_id, exercise_id, exercise_name, category, weight, reps) VALUES(?, (SELECT exercise_id FROM EXERCISES WHERE exercise_name=?), ?, (SELECT category FROM EXERCISES WHERE exercise_name=?), ?, ?);";
     db.query(
       sql,
-      [user_id, exercise_id, exercise_id, exercise_id, weight, reps],
+      [user_id, exercise_name, exercise_name, exercise_name, weight, reps],
       (err, result) => {
         if (err) {
           console.error("Error inserting data:", err);
@@ -248,7 +250,7 @@ app.post("/workout_push", (req, res) => {
 });
 
 // Pull exercises
-app.get('/workouts', (req, res) => {
+app.get("/workouts", (req, res) => {
   const db = createConnection(); // Create a new database connection
 
   db.connect((err) => {
@@ -261,7 +263,7 @@ app.get('/workouts', (req, res) => {
 
     user_id = req.session.user_id;
     db.query(
-      'SELECT exercise_name, category, weight, reps, date FROM WORKOUTS WHERE user_id = ?;',
+      "SELECT exercise_name, category, weight, reps, date FROM WORKOUTS WHERE user_id = ?;",
       [user_id],
       (err, results) => {
         if (err) {
@@ -282,7 +284,6 @@ app.get('/workouts', (req, res) => {
     );
   });
 });
-
 
 // Start server
 const port = process.env.PORT || 3000;
