@@ -32,6 +32,7 @@ function updateWorkout(exercise) {
     .then((data) => {
       console.log(data);
       // Handle success
+      location.reload(); // Reload the page
     })
     .catch((error) => {
       console.error("There was a problem with your fetch operation:", error);
